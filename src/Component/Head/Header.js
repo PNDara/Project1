@@ -10,6 +10,8 @@ const Header = () => {
 
   const [Mobile, setMobile] = useState(false);
 
+  const [showAside, setShowAside] = useState(false);
+
   return (
     <header className="header">
       <div className="container d_flex">
@@ -17,10 +19,7 @@ const Header = () => {
           <img src={logo} alt="" />
         </div>
         <div className="navlink">
-          <ul
-            className={Mobile ? "nav-links-mobile" : "link f_flex uppercase"}
-            onClick={() => setMobile(false)}
-          >
+          <ul className="navbar">
             <li>
               <a href="#home">Home</a>
             </li>
@@ -40,16 +39,45 @@ const Header = () => {
               <a href="#contact">Contact</a>
             </li>
             <li>
-              <button className="home-btn">Buy Now</button>
+              <button className="home-btn ">Buy Now</button>
             </li>
           </ul>
-          <button className="toggle" onClick={() => setMobile(!Mobile)}>
+          <button className="toggle" onClick={() => setShowAside(!showAside)}>
             {Mobile ? (
               <button className="fas fa-times close home-btn"></button>
             ) : (
               <button className="fas fa-bars open"></button>
             )}
           </button>
+          {/* aside nav bar */}
+          <div>
+            <ul
+              style={{ display: showAside ? "block" : "none" }}
+              className="aside-navbar"
+            >
+              <li>
+                <a href="#home">Home</a>
+              </li>
+              <li>
+                <a href="#features">Features</a>
+              </li>
+              <li>
+                <a href="#service">Service</a>
+              </li>
+              <li>
+                <a href="#about">About</a>
+              </li>
+              <li>
+                <a href="#blog">Blog</a>
+              </li>
+              <li>
+                <a href="#contact">Contact</a>
+              </li>
+              <li>
+                <button className="home-btn ">Buy Now</button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </header>
